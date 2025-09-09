@@ -2,8 +2,11 @@ name: GitHub Traffic Stats
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # runs daily at midnight
-  workflow_dispatch:      # allow manual runs
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   get-traffic:
@@ -17,7 +20,6 @@ jobs:
         run: |
           echo "# GitHub Traffic Stats" > TRAFFIC.md
           REPOS=("tediyo/repo1" "tediyo/repo2" "tediyo/repo3") # list your repos here
-          
           for repo in "${REPOS[@]}"
           do
             echo "## $repo" >> TRAFFIC.md
@@ -30,10 +32,8 @@ jobs:
 
       - name: Commit & Push updated stats
         run: |
-         git config --local user.name "github-actions[bot]"
-         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-         git add TRAFFIC.md
-         git diff --staged --quiet || git commit -m "chore: update traffic stats"
-         git remote set-url origin https://tediyo:${{ secrets.Stat_PAT }}@github.com/tediyo/G-Stats.git
-         git push origin HEAD:main
-
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add TRAFFIC.md
+          git diff --staged --quiet || git commit -m "chore: update traffic stats"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tediyo/G-Stats.git HEAD:main
