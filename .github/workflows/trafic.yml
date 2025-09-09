@@ -34,6 +34,6 @@ jobs:
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
          git add TRAFFIC.md
          git diff --staged --quiet || git commit -m "chore: update traffic stats"
-         git remote set-url origin https://tediyo:${{ secrets.GH_PAT }}@github.com/tediyo/G-Stats.git
+         git remote set-url origin https://tediyo:${{ secrets.G-Stat-PAT }}@github.com/tediyo/G-Stats.git
          git push origin HEAD:main
 
