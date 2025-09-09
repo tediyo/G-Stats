@@ -19,7 +19,40 @@ jobs:
       - name: Fetch traffic stats for all repos
         run: |
           echo "# GitHub Traffic Stats" > TRAFFIC.md
-          REPOS=("tediyo/repo1" "tediyo/repo2" "tediyo/repo3") # list your repos here
+          REPOS=(
+            "tediyo/Enkutatash-Gift-Card-New-Year"
+            "tediyo/E-Store-for-EST"
+            "tediyo/tediyo"
+            "tediyo/New-Portfolio"
+            "tediyo/E-Shop-MC-Foundation-back-services"
+            "tediyo/Portfolio-Template"
+            "tediyo/Enkutatash-Gift-Card"
+            "tediyo/Weather-App"
+            "tediyo/tediyo.github.io"
+            "tediyo/Simple-Calculator"
+            "tediyo/React-Weather-App"
+            "tediyo/React-E-Commerce"
+            "tediyo/E-Store"
+            "tediyo/React-To-Do-App"
+            "tediyo/React-Portfolio"
+            "tediyo/E-Commerce-App"
+            "tediyo/Enkutatash"
+            "tediyo/React-Movie-App"
+            "tediyo/E-Shop"
+            "tediyo/E-Commerce-Store"
+            "tediyo/React-Redux-Store"
+            "tediyo/React-Blog"
+            "tediyo/React-Admin-Panel"
+            "tediyo/React-Chart"
+            "tediyo/React-Login"
+            "tediyo/React-Register"
+            "tediyo/React-Profile"
+            "tediyo/React-Dashboard"
+            "tediyo/React-Product"
+            "tediyo/React-Cart"
+            "tediyo/React-Checkout"
+            "tediyo/React-Order"
+          )
           for repo in "${REPOS[@]}"
           do
             echo "## $repo" >> TRAFFIC.md
